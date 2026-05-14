@@ -1,0 +1,9 @@
+﻿node_modules/
+temporary screenshots/
+.claude/
+fix_*.js
+fix_*.mjs
+build_*.js
+transform.mjs
+screenshot_mobile.mjs
+*.output
