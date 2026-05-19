@@ -313,6 +313,11 @@
     display: block; width: 20px; height: 1.5px;
     background: var(--accent);
   }
+  .section-label::after {
+    content: '';
+    display: block; width: 20px; height: 1.5px;
+    background: var(--accent);
+  }
 
   .section-heading {
     font-size: clamp(2rem, 3.5vw, 2.8rem);
@@ -891,7 +896,7 @@
 
   .work-label {
     position: absolute;
-    top: 1rem; left: 1rem;
+    bottom: 1rem; left: 1rem;
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.1em;
@@ -1215,8 +1220,8 @@
 
   /* Section header text */
   .work-section .section-label { color: rgba(200,136,58,0.9); }
-  .work-section .section-label::before,
-  .work-section .section-label span { background: rgba(200,136,58,0.7) !important; }
+  .work-section .section-label::before { background: rgba(200,136,58,0.7) !important; }
+  .work-section .section-label::after { background: rgba(200,136,58,0.7); }
   .work-section .section-heading { color: #fff !important; }
   .work-section .section-sub { color: rgba(255,255,255,0.65) !important; }
 
@@ -1320,10 +1325,7 @@
 <section id="work" class="work-section">
   <div class="section-inner">
     <div style="text-align:center;">
-      <div class="section-label" style="justify-content:center;">
-        <span style="display:block;width:20px;height:1.5px;background:var(--accent);"></span>
-        Our work
-      </div>
+      <div class="section-label" style="justify-content:center;">Our work</div>
       <h2 class="section-heading" style="max-width:100%;margin:0 auto 1rem;">Real sites. Real transformations.</h2>
       <p class="section-sub" style="max-width:520px;margin:0 auto;">Here's what we've actually built — so you can see the difference a properly designed website makes.</p>
     </div>
@@ -1356,7 +1358,7 @@
         <div class="work-meta">
           <div class="work-meta-grid">
             <div>
-              <div class="work-client">Kimball Sand Company, Inc.</div>
+              <div class="work-client">Kimball Sand and Gravel</div>
               <p class="work-desc">A complete ground-up redesign for a long-established aggregate supplier in Blackstone, MA. We replaced a dated, table-based website with a modern, fast-loading site — improving mobile usability, local search visibility, and the overall impression customers get before they ever make a call.</p>
               <div class="work-tags">
                 <span class="work-tag">Custom Design</span>

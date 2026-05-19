@@ -313,6 +313,11 @@
     display: block; width: 20px; height: 1.5px;
     background: var(--accent);
   }
+  .section-label::after {
+    content: '';
+    display: block; width: 20px; height: 1.5px;
+    background: var(--accent);
+  }
 
   .section-heading {
     font-size: clamp(2rem, 3.5vw, 2.8rem);
@@ -1215,6 +1220,7 @@
   /* Section header */
   #pricing .section-label, #faq .section-label { color: rgba(200,136,58,0.9); }
   #pricing .section-label span, #faq .section-label span { background: rgba(200,136,58,0.7) !important; }
+
   #pricing .section-heading, #faq .section-heading { color: #fff !important; }
   #pricing .section-sub { color: rgba(255,255,255,0.65) !important; }
 
@@ -1306,10 +1312,7 @@
 <section id="pricing">
   <div class="section-inner">
     <div style="text-align:center;">
-      <div class="section-label" style="justify-content:center;">
-        <span style="display:block;width:20px;height:1.5px;background:var(--accent);"></span>
-        Transparent pricing
-      </div>
+      <div class="section-label" style="justify-content:center;">Transparent pricing</div>
       <h2 class="section-heading" style="max-width:100%;margin:0 auto 1rem;">Simple, honest pricing</h2>
       <p class="section-sub" style="max-width:480px;margin:0 auto;">One flat rate. No monthly fees. No hidden costs. You own your website outright.</p>
     </div>
@@ -1320,12 +1323,12 @@
         <div class="plan-name" style="margin-top:0.5rem;">Complete Website Package</div>
         <div style="display:flex;align-items:flex-start;justify-content:center;gap:4px;margin:1rem 0 0.25rem;">
           <span style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:#fff;margin-top:0.5rem;">$</span>
-          <span style="font-family:'DM Serif Display',serif;font-size:4rem;color:#fff;line-height:1;">799</span>
+          <span style="font-family:'DM Serif Display',serif;font-size:4rem;color:#fff;line-height:1;">499</span>
         </div>
         <div class="plan-price-sub" style="font-size:0.9rem;margin-bottom:2rem;">one-time payment · you own it forever</div>
         <div class="plan-divider"></div>
         <ul class="plan-features" style="text-align:left;margin-bottom:2.5rem;">
-          <li><span class="check-icon">✓</span> Custom-designed website (up to 5 pages)</li>
+          <li><span class="check-icon">✓</span> Custom-designed website</li>
           <li><span class="check-icon">✓</span> Mobile-responsive on every device</li>
           <li><span class="check-icon">✓</span> Contact form & click-to-call button</li>
           <li><span class="check-icon">✓</span> Local SEO setup so Google can find you</li>
@@ -1347,9 +1350,7 @@
         <div style="display:flex;align-items:center;gap:0.4rem;font-size:0.82rem;color:var(--ink-faint);">
           <span style="color:var(--accent);">✓</span> Free discovery call
         </div>
-        <div style="display:flex;align-items:center;gap:0.4rem;font-size:0.82rem;color:var(--ink-faint);">
-          <span style="color:var(--accent);">✓</span> Need more pages? Just ask.
-        </div>
+
       </div>
     </div>
   </div>
@@ -1359,10 +1360,7 @@
 <section id="faq">
   <div class="section-inner">
     <div style="text-align:center;">
-      <div class="section-label" style="justify-content:center;">
-        <span style="display:block;width:20px;height:1.5px;background:var(--accent);"></span>
-        FAQ
-      </div>
+      <div class="section-label" style="justify-content:center;">FAQ</div>
       <h2 class="section-heading" style="max-width:100%;margin:0 auto 1rem;">Questions we hear a lot</h2>
     </div>
 
@@ -1381,19 +1379,13 @@
         </div>
         <div class="faq-a">Most websites are live within 14 days of our first conversation. The process: discovery call → we send you a design preview within 5 business days → you give feedback → we finalize and launch. Simple projects can go live even faster.</div>
       </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          What if I already have a website I hate?
-          <div class="faq-toggle">+</div>
-        </div>
-        <div class="faq-a">We rebuild it from scratch. We'll look at what's not working — whether it's the look, the content, the speed, or all three — and fix it. We can also migrate your domain and any content you'd like to keep.</div>
-      </div>
+
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
           Will I be able to update the website myself?
           <div class="faq-toggle">+</div>
         </div>
-        <div class="faq-a">You don't have to — that's part of the service. Just text or email us what you need changed, and we'll handle it, usually within 24 hours. If you'd prefer to have login access to make changes yourself, we can set that up too.</div>
+        <div class="faq-a">Yes — within 30 days of launch, just reach out and we'll take care of any updates for you. After that window, the site is fully yours to manage. We make sure you have everything handed off and ready so you can make changes yourself going forward.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q" onclick="toggleFaq(this)">
@@ -1407,7 +1399,7 @@
           What areas do you serve?
           <div class="faq-toggle">+</div>
         </div>
-        <div class="faq-a">We primarily work with businesses in the local area, and we genuinely enjoy meeting clients in person when possible. That said, we work remotely too — so if you've found us from outside the area, we're still happy to talk.</div>
+        <div class="faq-a">We're based out of Massachusetts and primarily serve businesses across the Greater Boston area, South Shore, and Rhode Island — but we happily work with clients from anywhere in the country. Everything we do is fully remote, so getting started is as easy as a quick call or email.</div>
       </div>
     </div>
   </div>

@@ -131,7 +131,7 @@
     color: var(--ink-muted);
     line-height: 1.75;
     margin-bottom: 2.5rem;
-    max-width: 440px;
+    max-width: 620px;
   }
 
   .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
@@ -309,6 +309,11 @@
   }
 
   .section-label::before {
+    content: '';
+    display: block; width: 20px; height: 1.5px;
+    background: var(--accent);
+  }
+  .section-label::after {
     content: '';
     display: block; width: 20px; height: 1.5px;
     background: var(--accent);
@@ -1218,7 +1223,8 @@
 
   /* Section text colours on dark bg */
   .glass-section .section-label { color: rgba(200,136,58,0.9); }
-  .glass-section .section-label::before { background: rgba(200,136,58,0.7); }
+  .glass-section .section-label::before,
+  .glass-section .section-label::after { background: rgba(200,136,58,0.7); }
   .glass-section .section-heading { color: #fff; }
   .glass-section .section-sub { color: rgba(255,255,255,0.65); }
 
@@ -1261,6 +1267,185 @@
   /* Centre-aligned trust cards keep emoji bright */
   .glass-section .step-card [style*="font-size:2.2rem"] { filter: none; }
 
+
+  /* ── HERO MESH GRADIENT BACKGROUND ── */
+  .hero-wrapper {
+    position: relative;
+    background: #0a1f16;
+    overflow: hidden;
+  }
+
+  /* Animated blob layers — 8 blobs, varied speeds */
+  .hero-blob {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    will-change: transform, opacity;
+  }
+  .hero-blob-1 {
+    width: 800px; height: 800px;
+    background: radial-gradient(circle at 40% 40%, rgba(26,60,52,1) 0%, rgba(13,34,24,0.6) 50%, transparent 75%);
+    top: -250px; left: -180px;
+    filter: blur(70px);
+    animation: blob1 14s cubic-bezier(0.45,0.05,0.55,0.95) infinite;
+  }
+  .hero-blob-2 {
+    width: 620px; height: 620px;
+    background: radial-gradient(circle at 60% 40%, rgba(45,106,90,0.85) 0%, rgba(26,60,52,0.4) 50%, transparent 72%);
+    top: 80px; right: -100px;
+    filter: blur(75px);
+    animation: blob2 11s cubic-bezier(0.45,0.05,0.55,0.95) infinite;
+  }
+  .hero-blob-3 {
+    width: 560px; height: 560px;
+    background: radial-gradient(circle at 50% 50%, rgba(45,106,90,0.85) 0%, transparent 68%);
+    bottom: -100px; left: 30%;
+    filter: blur(65px);
+    animation: blob3 9s cubic-bezier(0.45,0.05,0.55,0.95) infinite;
+  }
+  .hero-blob-4 {
+    width: 380px; height: 380px;
+    background: radial-gradient(circle at 50% 50%, rgba(200,136,58,0.28) 0%, transparent 70%);
+    top: 50%; right: 20%;
+    filter: blur(55px);
+    animation: blob4 16s cubic-bezier(0.45,0.05,0.55,0.95) infinite;
+  }
+  .hero-blob-5 {
+    width: 300px; height: 300px;
+    background: radial-gradient(circle at 50% 50%, rgba(30,75,60,0.7) 0%, rgba(45,106,90,0.3) 60%, transparent 75%);
+    top: 15%; left: 38%;
+    filter: blur(45px);
+    animation: blob5 8s cubic-bezier(0.45,0.05,0.55,0.95) infinite;
+  }
+  .hero-blob-6 {
+    width: 450px; height: 450px;
+    background: radial-gradient(circle at 50% 50%, rgba(10,35,22,0.95) 0%, rgba(26,60,52,0.5) 55%, transparent 75%);
+    top: 40%; left: -80px;
+    filter: blur(80px);
+    animation: blob6 13s cubic-bezier(0.45,0.05,0.55,0.95) infinite;
+  }
+  .hero-blob-7 {
+    width: 280px; height: 280px;
+    background: radial-gradient(circle at 50% 50%, rgba(15,40,25,0.9) 0%, rgba(26,60,52,0.5) 50%, transparent 70%);
+    bottom: 10%; left: 15%;
+    filter: blur(50px);
+    animation: blob7 7s cubic-bezier(0.45,0.05,0.55,0.95) infinite;
+  }
+  .hero-blob-8 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle at 50% 50%, rgba(13,34,24,0.85) 0%, rgba(20,55,40,0.5) 50%, transparent 72%);
+    top: -50px; right: 30%;
+    filter: blur(85px);
+    animation: blob8 20s cubic-bezier(0.45,0.05,0.55,0.95) infinite;
+  }
+
+  @keyframes blob1 {
+    0%  { transform: translate(0,0) scale(1); }
+    20% { transform: translate(110px,55px) scale(1.09); }
+    40% { transform: translate(70px,-85px) scale(0.93); }
+    60% { transform: translate(-40px,30px) scale(1.05); }
+    80% { transform: translate(50px,70px) scale(0.97); }
+    100%{ transform: translate(0,0) scale(1); }
+  }
+  @keyframes blob2 {
+    0%  { transform: translate(0,0) scale(1); }
+    25% { transform: translate(-90px,70px) scale(0.91); }
+    50% { transform: translate(-50px,-100px) scale(1.12); }
+    75% { transform: translate(60px,-40px) scale(0.96); }
+    100%{ transform: translate(0,0) scale(1); }
+  }
+  @keyframes blob3 {
+    0%  { transform: translate(-50%,0) scale(1); }
+    30% { transform: translate(-38%,-65px) scale(1.14); }
+    60% { transform: translate(-55%,30px) scale(0.92); }
+    100%{ transform: translate(-50%,0) scale(1); }
+  }
+  @keyframes blob4 {
+    0%  { transform: translate(0,-50%) scale(1); }
+    25% { transform: translate(65px,-40%) scale(1.12); }
+    50% { transform: translate(-45px,-60%) scale(0.88); }
+    75% { transform: translate(30px,-55%) scale(1.05); }
+    100%{ transform: translate(0,-50%) scale(1); }
+  }
+  @keyframes blob5 {
+    0%  { transform: translate(0,0) scale(1); }
+    33% { transform: translate(40px,50px) scale(1.22); }
+    66% { transform: translate(-25px,20px) scale(0.88); }
+    100%{ transform: translate(0,0) scale(1); }
+  }
+  @keyframes blob6 {
+    0%  { transform: translate(0,0) scale(1); }
+    40% { transform: translate(80px,-60px) scale(1.1); }
+    70% { transform: translate(30px,80px) scale(0.9); }
+    100%{ transform: translate(0,0) scale(1); }
+  }
+  @keyframes blob7 {
+    0%  { transform: translate(0,0) scale(1); }
+    50% { transform: translate(60px,-70px) scale(1.25); }
+    100%{ transform: translate(0,0) scale(1); }
+  }
+  @keyframes blob8 {
+    0%  { transform: translate(0,0) scale(1); }
+    20% { transform: translate(-60px,40px) scale(1.06); }
+    50% { transform: translate(50px,-50px) scale(0.94); }
+    80% { transform: translate(-30px,60px) scale(1.08); }
+    100%{ transform: translate(0,0) scale(1); }
+  }
+
+  /* Noise grain overlay for depth */
+  .hero-wrapper::after {
+    content: '';
+    position: absolute; inset: 0; z-index: 1;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+
+  /* Nav — semi-transparent over dark hero */
+  nav { background: rgba(249,247,244,0.5) !important; backdrop-filter: blur(20px) !important; -webkit-backdrop-filter: blur(20px) !important; }
+
+  /* Hero content sits above blobs */
+  .hero-wrapper > div:not(.hero-blob) { position: relative; z-index: 2; }
+  .hero-wrapper .hero { position: relative; z-index: 2; }
+
+  /* Hero text colours on dark background */
+  .hero-wrapper .hero h1 { color: #fff; }
+  .hero-wrapper .hero h1 em { color: var(--accent); font-style: italic; }
+  .hero-wrapper .hero .hero-sub { color: rgba(255,255,255,0.68); }
+  .hero-wrapper .hero .hero-eyebrow {
+    color: var(--accent);
+    background: rgba(200,136,58,0.15);
+    border: 1px solid rgba(200,136,58,0.25);
+  }
+  .hero-wrapper .hero .hero-eyebrow::before { background: var(--accent); }
+
+  /* Ghost button adapts to dark bg */
+  .hero-wrapper .btn-ghost {
+    color: rgba(255,255,255,0.75);
+    border-color: rgba(255,255,255,0.2);
+  }
+  .hero-wrapper .btn-ghost:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.4);
+    color: #fff;
+  }
+
+  /* Hero visual cards stay readable on dark bg */
+  .hero-wrapper .hero-card {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.12);
+    backdrop-filter: blur(16px);
+  }
+  .hero-wrapper .hero-card-stat { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); }
+  .hero-wrapper .card-stat-num { color: #fff; }
+  .hero-wrapper .card-label { color: rgba(255,255,255,0.5); }
+  .hero-wrapper .card-stat-sub { color: rgba(255,255,255,0.55); }
+  .hero-wrapper .hero-card-review { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); }
+  .hero-wrapper .review-text { color: rgba(255,255,255,0.7); }
+  .hero-wrapper .review-author { color: var(--accent); }
+
+
+
 </style>
 </head>
 <body>
@@ -1293,12 +1478,19 @@
 </div>
 
 <!-- ═══ HERO ═══ -->
-<div style="max-width:100%; overflow:hidden;">
-<div class="hero">
-  <div>
+<div class="hero-wrapper">
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+  <div class="hero-blob hero-blob-3"></div>
+  <div class="hero-blob hero-blob-4"></div>
+  <div class="hero-blob hero-blob-5"></div>
+  <div class="hero-blob hero-blob-6"></div>
+  <div class="hero-blob hero-blob-7"></div>
+  <div class="hero-blob hero-blob-8"></div>
+  <div class="hero">
     <div class="hero-eyebrow anim anim-d1">Local web development, done right</div>
     <h1 class="anim anim-d2">Your business deserves a website that <em>actually works</em></h1>
-    <p class="hero-sub anim anim-d3">We build fast, beautiful, trust-building websites for small businesses in the area — without the agency price tag or the runaround.</p>
+    <p class="hero-sub anim anim-d3">We build fast, beautiful, trust-building websites for small businesses — without the agency price tag or the runaround.</p>
     <div class="hero-actions anim anim-d4">
       <a href="contact.html" class="btn-primary">
         Schedule a Call
@@ -1307,77 +1499,26 @@
       <a href="#how-it-works" class="btn-ghost">See how it works</a>
     </div>
   </div>
-
-  <div class="hero-visual anim anim-d3">
-    <!-- Main browser card -->
-    <div class="hero-card hero-card-main">
-      <div style="display:flex;align-items:center;gap:6px;margin-bottom:0.5rem;">
-        <div style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.25);"></div>
-        <div style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.25);"></div>
-        <div style="width:8px;height:8px;border-radius:50%;background:rgba(200,136,58,0.7);"></div>
-        <div style="flex:1;height:14px;background:rgba(255,255,255,0.07);border-radius:4px;margin-left:4px;"></div>
-      </div>
-      <div class="hero-mock-browser">
-        <div class="browser-bar">
-          <div class="browser-dot"></div>
-          <div class="browser-dot"></div>
-          <div class="browser-dot"></div>
-          <div class="browser-url"></div>
-        </div>
-        <div class="mock-page">
-          <div class="mock-img" style="background:rgba(200,136,58,0.18);"></div>
-          <div class="mock-bar" style="width:70%;"></div>
-          <div class="mock-bar short"></div>
-          <div class="mock-bar medium" style="margin-top:12px;"></div>
-          <div class="mock-bar" style="width:40%;"></div>
-        </div>
-      </div>
-      <div style="position:absolute;bottom:1rem;left:1.5rem;right:1.5rem;">
-        <div style="display:flex;gap:8px;">
-          <div style="height:8px;width:60px;border-radius:3px;background:var(--accent);opacity:0.8;"></div>
-          <div style="height:8px;width:40px;border-radius:3px;background:rgba(255,255,255,0.12);"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Stat card -->
-    <div class="hero-card hero-card-stat">
-      <div class="card-label">Avg. new leads</div>
-      <div class="card-stat-num">+47<span style="font-size:1.2rem;color:var(--accent);">%</span></div>
-      <div class="card-stat-sub">within 90 days of launch</div>
-      <div style="margin-top:0.75rem;height:4px;background:var(--brand-light);border-radius:2px;overflow:hidden;">
-        <div style="width:72%;height:100%;background:var(--brand);border-radius:2px;"></div>
-      </div>
-    </div>
-
-    <!-- Value card -->
-    <div class="hero-card hero-card-review">
-      <div class="stars">✦ One-time investment</div>
-      <p class="review-text">A professional website for your business — fully built, launched, and ready to bring in customers. No monthly fees, no long-term contracts.</p>
-      <p class="review-author" style="color:var(--brand);font-weight:500;">$799 flat rate · Live in 14 days</p>
-    </div>
-  </div>
-</div>
 </div>
 
 <!-- ═══ TRUST STRIP ═══ -->
 <div class="logos-strip">
   <span class="logos-label">Why local businesses choose us</span>
   <div class="logo-pill">
-    <div class="logo-icon" style="background:var(--brand);">✓</div>
-    $799 flat rate
-  </div>
-  <div class="logo-pill">
     <div class="logo-icon" style="background:var(--brand);">⚡</div>
     Live in 14 days
   </div>
   <div class="logo-pill">
     <div class="logo-icon" style="background:var(--brand);">📞</div>
-    Local & reachable
+    Local &amp; reachable
   </div>
   <div class="logo-pill">
-    <div class="logo-icon" style="background:var(--brand);">🔒</div>
-    No hidden fees
+    <div class="logo-icon" style="background:var(--brand);">🎨</div>
+    Custom designed
+  </div>
+  <div class="logo-pill">
+    <div class="logo-icon" style="background:var(--brand);">📈</div>
+    Built to grow
   </div>
 </div>
 
@@ -1392,7 +1533,7 @@
       <div class="step-card anim anim-d1">
         <div class="step-num">01</div>
         <h3 class="step-title">Free discovery call</h3>
-        <p class="step-desc">We sit down (or hop on a call) to understand your business, your customers, and what you want your website to do for you. No commitment, no pressure.</p>
+        <p class="step-desc">We dedicate time to understanding your business, your customers, and what you want your website to do for you. No commitment, no pressure.</p>
         <div class="step-connector"></div>
       </div>
       <div class="step-card anim anim-d2">
@@ -1414,29 +1555,33 @@
 <section class="glass-section">
   <div class="section-inner">
     <div style="text-align:center;">
-      <div class="section-label" style="justify-content:center;">
-        <span style="display:block;width:20px;height:1.5px;background:var(--accent);"></span>
-        Client results
+      <div class="section-label" style="justify-content:center;">Client results
       </div>
       <h2 class="section-heading" style="max-width:100%;margin:0 auto 1rem;">Built to earn your trust</h2>
       <p class="section-sub" style="max-width:520px;margin:0 auto;">We're a new local business — just like the clients we serve. We don't have a wall of reviews yet, but we do have a clear commitment: we build every site as if our reputation depends on it. Because it does.</p>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem;">
-      <div class="step-card anim anim-d1" style="text-align:center;padding:2.25rem 1.75rem;">
-        <div style="font-size:2.2rem;margin-bottom:0.75rem;">🤝</div>
-        <h4 style="font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--brand);margin-bottom:0.5rem;">Honest work</h4>
-        <p style="font-size:0.875rem;color:var(--ink-muted);line-height:1.7;">We tell you exactly what you're getting, what it costs, and what to expect. No surprises, no upsells you didn't ask for.</p>
+    <div style="display:flex;flex-direction:column;gap:1rem;margin-top:3.5rem;max-width:680px;margin-left:auto;margin-right:auto;">
+      <div class="step-card anim anim-d1" style="display:flex;align-items:center;gap:1.5rem;padding:1.5rem 1.75rem;">
+        <div style="font-size:2rem;flex-shrink:0;width:48px;text-align:center;">🤝</div>
+        <div>
+          <h4 style="font-family:'DM Serif Display',serif;font-size:1.05rem;margin-bottom:0.3rem;">Honest work</h4>
+          <p style="font-size:0.875rem;line-height:1.65;">We tell you exactly what you're getting, what it costs, and what to expect. No surprises, no upsells you didn't ask for.</p>
+        </div>
       </div>
-      <div class="step-card anim anim-d2" style="text-align:center;padding:2.25rem 1.75rem;">
-        <div style="font-size:2.2rem;margin-bottom:0.75rem;">📍</div>
-        <h4 style="font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--brand);margin-bottom:0.5rem;">Locally invested</h4>
-        <p style="font-size:0.875rem;color:var(--ink-muted);line-height:1.7;">We live and work in this area too. When your business grows, so does our community. That's not a tagline — it's why we started this.</p>
+      <div class="step-card anim anim-d2" style="display:flex;align-items:center;gap:1.5rem;padding:1.5rem 1.75rem;">
+        <div style="font-size:2rem;flex-shrink:0;width:48px;text-align:center;">📍</div>
+        <div>
+          <h4 style="font-family:'DM Serif Display',serif;font-size:1.05rem;margin-bottom:0.3rem;">Locally invested</h4>
+          <p style="font-size:0.875rem;line-height:1.65;">We live and work in this area too. When your business grows, so does our community. That's not a tagline — it's why we started this.</p>
+        </div>
       </div>
-      <div class="step-card anim anim-d3" style="text-align:center;padding:2.25rem 1.75rem;">
-        <div style="font-size:2.2rem;margin-bottom:0.75rem;">📬</div>
-        <h4 style="font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--brand);margin-bottom:0.5rem;">Always reachable</h4>
-        <p style="font-size:0.875rem;color:var(--ink-muted);line-height:1.7;">You'll have a direct line to a real person — not a support ticket queue. Text us, call us, email us. We respond.</p>
+      <div class="step-card anim anim-d3" style="display:flex;align-items:center;gap:1.5rem;padding:1.5rem 1.75rem;">
+        <div style="font-size:2rem;flex-shrink:0;width:48px;text-align:center;">📬</div>
+        <div>
+          <h4 style="font-family:'DM Serif Display',serif;font-size:1.05rem;margin-bottom:0.3rem;">Always reachable</h4>
+          <p style="font-size:0.875rem;line-height:1.65;">You'll have a direct line to a real person — not a support ticket queue. Text us, call us, email us. We respond.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -1497,6 +1642,10 @@
 
 <svg style="position:absolute;width:0;height:0;overflow:hidden;" aria-hidden="true">
   <defs>
+    <filter id="hero-text-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
     <filter id="liquid-glass-filter" x="0" y="0" width="100%" height="100%" filterUnits="objectBoundingBox">
       <feTurbulence type="fractalNoise" baseFrequency="0.004 0.008" numOctaves="1" result="turbulence"/>
       <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="180" xChannelSelector="R" yChannelSelector="G"/>

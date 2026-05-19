@@ -313,6 +313,11 @@
     display: block; width: 20px; height: 1.5px;
     background: var(--accent);
   }
+  .section-label::after {
+    content: '';
+    display: block; width: 20px; height: 1.5px;
+    background: var(--accent);
+  }
 
   .section-heading {
     font-size: clamp(2rem, 3.5vw, 2.8rem);
@@ -1306,9 +1311,7 @@
       </form>
     </div>
     <div class="contact-info anim anim-left anim-d2">
-      <div class="section-label" style="margin-bottom:1.25rem;">
-        <span style="display:block;width:20px;height:1.5px;background:var(--accent);"></span>
-        Get in touch
+      <div class="section-label" style="margin-bottom:1.25rem;">Get in touch
       </div>
       <h2>Ready to get a website that works as hard as you do?</h2>
       <p>It starts with a free, no-pressure conversation. Tell us about your business and we'll show you exactly what we'd build &mdash; and why.</p>
@@ -1324,10 +1327,7 @@
         <div class="contact-detail-icon">&#9201;</div>
         <div class="contact-detail-text"><h4>Response time</h4><p>Within one business day &mdash; usually same day</p></div>
       </div>
-      <div class="contact-detail">
-        <div class="contact-detail-icon">&#128205;</div>
-        <div class="contact-detail-text"><h4>Service area</h4><p>Southern New England &middot; Remote-friendly</p></div>
-      </div>
+
       <p style="font-size:0.82rem;color:var(--ink-faint);margin-top:1.5rem;border-top:1px solid var(--border);padding-top:1.25rem;">No commitment. No sales pitch. Just a friendly conversation about your goals.</p>
     </div>
   </div>
