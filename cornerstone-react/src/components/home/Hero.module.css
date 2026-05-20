@@ -1,0 +1,103 @@
+﻿/* ── wrapper & blobs ── */
+.wrapper {
+  position: relative; background: #0a1f16;
+  overflow: hidden; min-height: 100vh;
+}
+.blob {
+  position: absolute; border-radius: 50%;
+  pointer-events: none; will-change: transform;
+}
+.blob1 { width:800px;height:800px;background:radial-gradient(circle,rgba(26,60,52,.9),transparent 70%);top:-250px;left:-180px;filter:blur(70px);animation:b1 14s cubic-bezier(.45,.05,.55,.95) infinite; }
+.blob2 { width:620px;height:620px;background:radial-gradient(circle,rgba(45,106,90,.85),transparent 72%);top:80px;right:-100px;filter:blur(75px);animation:b2 11s cubic-bezier(.45,.05,.55,.95) infinite; }
+.blob3 { width:560px;height:560px;background:radial-gradient(circle,rgba(45,106,90,.85),transparent 68%);bottom:-100px;left:30%;filter:blur(65px);animation:b3 9s cubic-bezier(.45,.05,.55,.95) infinite; }
+.blob4 { width:380px;height:380px;background:radial-gradient(circle,rgba(200,136,58,.28),transparent 70%);top:50%;right:20%;filter:blur(55px);animation:b4 16s cubic-bezier(.45,.05,.55,.95) infinite; }
+.blob5 { width:300px;height:300px;background:radial-gradient(circle,rgba(30,75,60,.7),transparent 75%);top:15%;left:38%;filter:blur(45px);animation:b5 8s cubic-bezier(.45,.05,.55,.95) infinite; }
+.blob6 { width:450px;height:450px;background:radial-gradient(circle,rgba(10,35,22,.95),transparent 75%);top:40%;left:-80px;filter:blur(80px);animation:b6 13s cubic-bezier(.45,.05,.55,.95) infinite; }
+.blob7 { width:280px;height:280px;background:radial-gradient(circle,rgba(15,40,25,.9),transparent 70%);bottom:10%;left:15%;filter:blur(50px);animation:b7 7s cubic-bezier(.45,.05,.55,.95) infinite; }
+.blob8 { width:500px;height:500px;background:radial-gradient(circle,rgba(13,34,24,.85),transparent 72%);top:-50px;right:30%;filter:blur(85px);animation:b8 20s cubic-bezier(.45,.05,.55,.95) infinite; }
+
+@keyframes b1{0%,100%{transform:translate(0,0) scale(1)}20%{transform:translate(110px,55px) scale(1.09)}40%{transform:translate(70px,-85px) scale(.93)}60%{transform:translate(-40px,30px) scale(1.05)}80%{transform:translate(50px,70px) scale(.97)}}
+@keyframes b2{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(-90px,70px) scale(.91)}50%{transform:translate(-50px,-100px) scale(1.12)}75%{transform:translate(60px,-40px) scale(.96)}}
+@keyframes b3{0%,100%{transform:translate(-50%,0) scale(1)}30%{transform:translate(-38%,-65px) scale(1.14)}60%{transform:translate(-55%,30px) scale(.92)}}
+@keyframes b4{0%,100%{transform:translate(0,-50%) scale(1)}25%{transform:translate(65px,-40%) scale(1.12)}50%{transform:translate(-45px,-60%) scale(.88)}75%{transform:translate(30px,-55%) scale(1.05)}}
+@keyframes b5{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,50px) scale(1.22)}66%{transform:translate(-25px,20px) scale(.88)}}
+@keyframes b6{0%,100%{transform:translate(0,0) scale(1)}40%{transform:translate(80px,-60px) scale(1.1)}70%{transform:translate(30px,80px) scale(.9)}}
+@keyframes b7{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(60px,-70px) scale(1.25)}}
+@keyframes b8{0%,100%{transform:translate(0,0) scale(1)}20%{transform:translate(-60px,40px) scale(1.06)}50%{transform:translate(50px,-50px) scale(.94)}80%{transform:translate(-30px,60px) scale(1.08)}}
+
+.noiseOverlay {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+/* ── hero layout ── */
+.hero {
+  position: relative; z-index: 2;
+  min-height: 100vh;
+  max-width: 640px;
+  padding: 140px 2rem 80px;
+  margin-left: max(4rem, calc((100vw - 1160px) / 2));
+  display: flex; flex-direction: column; justify-content: center;
+}
+
+/* ── eyebrow pill ── */
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  align-self: flex-start;
+  font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent); background: rgba(249,247,244,0.12);
+  padding: 0.35rem 0.9rem; border-radius: 100px; margin-bottom: 1.5rem;
+  border: 1px solid rgba(249,247,244,0.2);
+}
+.dot { display: block; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
+
+/* ── heading ── */
+.hero h1 {
+  font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+/* ── subtext ── */
+.sub {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+  max-width: 520px;
+}
+
+/* ── CTA buttons ── */
+.actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+
+.btnPrimary {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--brand); color: #fff;
+  padding: 0.85rem 2rem; border-radius: var(--radius-sm);
+  font-weight: 500; font-size: 0.95rem;
+  box-shadow: 0 4px 14px rgba(26,60,52,0.22);
+  transition: background 0.2s, transform 0.15s;
+}
+.btnPrimary:hover { background: var(--brand-mid); transform: translateY(-2px); }
+
+.btnGhost {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: transparent; color: rgba(255,255,255,0.75);
+  padding: 0.85rem 1.5rem; border-radius: var(--radius-sm);
+  border: 1.5px solid rgba(255,255,255,0.2);
+  font-size: 0.95rem;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btnGhost:hover { border-color: rgba(255,255,255,0.4); color: #fff; }
+
+
+@media (max-width: 900px) {
+  .hero { padding-top: 120px; margin-left: 2rem; }
+}

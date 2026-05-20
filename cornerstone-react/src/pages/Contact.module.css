@@ -1,0 +1,44 @@
+﻿.section{padding:96px 2rem;background:var(--off-white);}
+.inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.formWrap{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:2.5rem;box-shadow:0 8px 32px rgba(26,60,52,.07);}
+.formTitle{font-family:"DM Serif Display",serif;font-size:1.5rem;color:var(--brand);margin-bottom:.35rem;}
+.formSub{font-size:.875rem;color:var(--ink-muted);margin-bottom:1.75rem;line-height:1.6;}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.field{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.1rem;}
+.field label{font-size:.82rem;font-weight:500;color:var(--ink);}
+.field label span{color:var(--accent);}
+.field label small{font-weight:400;color:var(--ink-faint);}
+.field input,.field textarea,.field select{
+  padding:.72rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius-sm);
+  font-family:inherit;font-size:.9rem;color:var(--ink);background:var(--off-white);outline:none;
+  transition:border-color .2s,box-shadow .2s;
+}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(26,60,52,.08);}
+.field textarea{resize:vertical;}
+.field select{cursor:pointer;}
+.hasError input,.hasError textarea{border-color:#c0392b;}
+.err{font-size:.76rem;color:#c0392b;}
+.formError{font-size:.85rem;color:#c0392b;margin-bottom:1rem;padding:.75rem 1rem;background:#fdf2f2;border-radius:var(--radius-sm);border:1px solid #f5c6cb;}
+.submit{
+  width:100%;padding:.9rem;background:var(--brand);color:#fff;border-radius:var(--radius-sm);
+  font-family:inherit;font-size:.95rem;font-weight:500;
+  box-shadow:0 4px 14px rgba(26,60,52,.22);transition:background .2s,box-shadow .2s;
+}
+.submit:hover{background:var(--brand-mid);box-shadow:0 8px 24px rgba(26,60,52,.28);}
+.submit:disabled{opacity:.7;cursor:not-allowed;}
+.success{text-align:center;padding:2.5rem 1rem;}
+.successIcon{font-size:2.5rem;margin-bottom:1rem;color:var(--brand);}
+.success h3{font-family:"DM Serif Display",serif;font-size:1.4rem;color:var(--brand);margin-bottom:.5rem;}
+.success p{font-size:.9rem;color:var(--ink-muted);}
+
+.info{padding-top:.5rem;}
+.infoHeading{font-family:"DM Serif Display",serif;font-size:clamp(1.9rem,3vw,2.6rem);line-height:1.1;letter-spacing:-.03em;color:var(--brand);margin-bottom:1rem;}
+.infoSub{font-size:1rem;color:var(--ink-muted);line-height:1.75;margin-bottom:2.5rem;}
+.detail{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.5rem;}
+.detailIcon{width:42px;height:42px;border-radius:10px;background:var(--brand-light);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.detail h4{font-size:.9rem;font-weight:500;color:var(--ink);margin-bottom:.15rem;}
+.detail a,.detail p{font-size:.875rem;color:var(--ink-muted);}
+.detail a:hover{color:var(--brand);}
+.legal{font-size:.82rem;color:var(--ink-faint);margin-top:1.5rem;border-top:1px solid var(--border);padding-top:1.25rem;}
+
+@media(max-width:900px){.inner{grid-template-columns:1fr;gap:3rem;}.row{grid-template-columns:1fr;}}

@@ -1,0 +1,42 @@
+﻿/* ── BRAND TOKENS ── */
+:root {
+  --brand:        #1A3C34;
+  --brand-mid:    #2D6A5A;
+  --brand-light:  #E8F2EF;
+  --accent:       #C8883A;
+  --accent-light: #F7EFE4;
+  --off-white:    #F9F7F4;
+  --ink:          #1C1C1A;
+  --ink-muted:    #5A5A56;
+  --ink-faint:    #9A9A96;
+  --border:       rgba(28,28,26,0.10);
+  --radius-sm:    8px;
+  --radius-md:    14px;
+  --radius-lg:    20px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html  { scroll-behavior: smooth; }
+body  {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--off-white);
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+h1,h2,h3,h4 { font-family: 'DM Serif Display', serif; font-weight: 400; }
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; border: none; }
+
+/* ── GLASS SECTION ── */
+.glass-section {
+  background: linear-gradient(140deg, #0d2218 0%, #1A3C34 55%, #1f4a3a 100%);
+  position: relative;
+  overflow: hidden;
+}
+.glass-section .section-label::before,
+.glass-section .section-label::after { background: rgba(200,136,58,0.7); }
+.glass-section .section-heading { color: #fff; }
+.glass-section .section-sub    { color: rgba(255,255,255,0.65); }
