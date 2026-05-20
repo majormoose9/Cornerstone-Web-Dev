@@ -85,15 +85,13 @@
   /* ── HERO ── */
   .hero {
     min-height: 100vh;
-    padding: 0 2rem;
+    padding: 140px 4rem 80px;
     max-width: 1160px;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    max-width: 640px;
-    margin-left: max(2rem, calc((100vw - 1160px) / 2));
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 5rem;
+    align-items: center;
   }
 
   .hero-eyebrow {
@@ -1448,11 +1446,69 @@
 
 
 
+
+  /* ── HERO ANIMATED LOGO ICON ── */
+  .hero-logo-container {
+    width: 260px;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    perspective: 800px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-logo-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  /* ── INDIVIDUAL TILE HOVER — each tile responds independently ── */
+  .hero-tile {
+    cursor: pointer;
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+                filter 0.5s ease;
+    filter: drop-shadow(0 0 0 rgba(200,136,58,0));
+  }
+
+  /* Top tile: lifts straight up */
+  .hero-tile-top:hover {
+    transform: translateY(-22px) scale(1.06) rotateX(6deg);
+    filter: drop-shadow(0 0 18px rgba(31,61,46,0.6));
+  }
+
+  /* Left tile: slides out to the left */
+  .hero-tile-side:hover {
+    transform: translateX(-22px) scale(1.06) rotateY(-6deg);
+    filter: drop-shadow(0 0 18px rgba(31,61,46,0.6));
+  }
+
+  /* Orange top face: lifts diagonally */
+  .hero-tile-orange-top:hover {
+    transform: translate(14px, -16px) scale(1.08);
+    filter: drop-shadow(0 0 24px rgba(245,158,11,0.85));
+    transition-delay: 0ms;
+  }
+
+  /* Right tile: pops forward-right with warm amber glow */
+  .hero-tile-orange-front:hover {
+    transform: translate(22px, 12px) scale(1.06) rotateY(6deg);
+    filter: drop-shadow(0 0 28px rgba(200,136,58,0.85));
+  }
+
 </style>
 </head>
 <body>
 
-<!-- ═══ NAV ═══ -->
+<!-- ============================================================
+  NAVIGATION
+  Fixed top bar with logo, links, hamburger (mobile), and CTA.
+  Nav background is semi-transparent with backdrop blur.
+  On homepage it overlays the dark hero gradient.
+============================================================ -->
 <nav>
   <a class="nav-logo" href="index.html">
     <img src="logo.png" alt="Cornerstone Web Development" style="height:64px;width:auto;display:block;">
@@ -1479,7 +1535,12 @@
   <a href="contact.html" class="drawer-cta">Schedule a Call</a>
 </div>
 
-<!-- ═══ HERO ═══ -->
+<!-- ============================================================
+  HERO SECTION
+  Dark animated mesh gradient background (8 floating blobs).
+  Left column: headline, subtext, CTAs.
+  Right column: animated 4-tile SVG logo icon (hover to separate tiles).
+============================================================ -->
 <div class="hero-wrapper">
   <div class="hero-blob hero-blob-1"></div>
   <div class="hero-blob hero-blob-2"></div>
@@ -1490,20 +1551,68 @@
   <div class="hero-blob hero-blob-7"></div>
   <div class="hero-blob hero-blob-8"></div>
   <div class="hero">
-    <div class="hero-eyebrow anim anim-d1">Local web development, done right</div>
-    <h1 class="anim anim-d2">Your business deserves a website that <em>actually works</em></h1>
-    <p class="hero-sub anim anim-d3">We build fast, beautiful, trust-building websites for small businesses — without the agency price tag or the runaround.</p>
-    <div class="hero-actions anim anim-d4">
-      <a href="contact.html" class="btn-primary">
-        Schedule a Call
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-      </a>
-      <a href="#how-it-works" class="btn-ghost">See how it works</a>
-    </div>
-  </div>
-</div>
 
-<!-- ═══ TRUST STRIP ═══ -->
+    <!-- Left column: hero text -->
+    <div class="hero-text-col">
+      <div class="hero-eyebrow anim anim-d1">Local web development, done right</div>
+      <h1 class="anim anim-d2">Your business deserves a website that <em>actually works</em></h1>
+      <p class="hero-sub anim anim-d3">We build fast, beautiful, trust-building websites for small businesses — without the agency price tag or the runaround.</p>
+      <div class="hero-actions anim anim-d4">
+        <a href="contact.html" class="btn-primary">
+          Schedule a Call
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a href="#how-it-works" class="btn-ghost">See how it works</a>
+      </div>
+    </div>
+
+    <!-- ── ANIMATED LOGO ICON (right hero column) ──────────────
+         4 SVG polygon tiles, each moves independently on hover.
+         Top tile lifts, C-body slides left, orange tiles pop with glow.
+         Animation: cubic-bezier spring easing, 500ms per tile.
+    ─────────────────────────────────────────────────────────── -->
+    <div class="hero-logo-container" aria-hidden="true">
+      <svg class="hero-logo-svg" <svg viewBox="0 0 200 215" class="hero-logo-svg" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- C BODY: includes bottom arm closing below the orange cube -->
+  <polygon class="hero-tile hero-tile-side"
+    points="28,52 168,52 120,76 120,100 78,116 78,172 120,158 120,194 28,178"
+    fill="#1A3C34" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- TOP ARM RIGHT FACE: 3D depth on right side of arm -->
+  <polygon class="hero-tile hero-tile-side"
+    points="168,52 120,76 120,100 168,76"
+    fill="#122B25" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- ORANGE TOP FACE -->
+  <polygon class="hero-tile hero-tile-orange-top"
+    points="78,116 120,100 162,78 120,94"
+    fill="#F59E0B" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- ORANGE FRONT FACE -->
+  <polygon class="hero-tile hero-tile-orange-front"
+    points="78,116 120,100 120,158 78,172"
+    fill="#F59E0B" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- ORANGE RIGHT FACE -->
+  <polygon class="hero-tile hero-tile-orange-front"
+    points="120,100 162,78 162,136 120,158"
+    fill="#D4780A" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- TOP TILE: lighter green, rendered last -->
+  <polygon class="hero-tile hero-tile-top"
+    points="100,8 168,52 100,96 28,52"
+    fill="#2D6A5A" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+
+</svg>
+    </div>
+
+  </div>
+
+<!-- ============================================================
+  TRUST STRIP
+  Full-width bar showing 4 quick value props below the hero.
+============================================================ -->
 <div class="logos-strip">
   <span class="logos-label">Why local businesses choose us</span>
   <div class="logo-pill">
@@ -1524,7 +1633,11 @@
   </div>
 </div>
 
-<!-- ═══ HOW IT WORKS ═══ -->
+<!-- ============================================================
+  HOW IT WORKS
+  3-step process cards on dark gradient + liquid glass background.
+  Steps: Free discovery call → Design & build → Launch & grow.
+============================================================ -->
 <section id="how-it-works" class="glass-section">
   <div class="section-inner">
     <div class="section-label">The process</div>
@@ -1553,7 +1666,12 @@
   </div>
 </section>
 
-<!-- ═══ TESTIMONIALS PLACEHOLDER ═══ -->
+<!-- ============================================================
+  TRUST / CLIENT COMMITMENT
+  3 stacked cards on dark gradient background (glass effect).
+  Cards: Honest work, Locally invested, Always reachable.
+  Replace with real testimonials when available.
+============================================================ -->
 <section class="glass-section">
   <div class="section-inner">
     <div style="text-align:center;">
@@ -1589,12 +1707,30 @@
   </div>
 </section>
 
-<!-- ═══ FOOTER ═══ -->
+<!-- ============================================================
+  FOOTER
+  White background. Logo + tagline left, 3 link columns right.
+  Bottom bar: copyright + serving note.
+============================================================ -->
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
       <div style="margin-bottom:1rem;">
-        <img src="logo.png" alt="Cornerstone Web Development" style="height:64px;width:auto;display:block;"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290 68" style="height:64px;width:auto;display:block;" aria-hidden="true">
+      <polygon points="3,61 49,61 49,47 21,47 21,32 49,32 49,18 3,18" fill="#1A3C34"/>
+      <polygon points="3,18 49,18 58,12 12,12" fill="#2D6A5A"/>
+      <polygon points="3,32 21,32 30,26 12,26" fill="#2D6A5A"/>
+      <polygon points="3,47 49,47 58,41 12,41" fill="#2D6A5A"/>
+      <polygon points="49,32 49,18 58,12 58,26" fill="#122B25"/>
+      <polygon points="49,61 49,47 58,41 58,55" fill="#122B25"/>
+      <polygon points="21,47 39,47 39,34 21,34" fill="#C8883A"/>
+      <polygon points="21,34 39,34 47,28 29,28" fill="#D4943F"/>
+      <polygon points="39,47 47,41 47,28 39,34" fill="#A06B25"/>
+      <text x="72" y="37" font-family="'DM Serif Display',Georgia,serif" font-size="22" fill="#1A3C34" letter-spacing="0.5">CORNERSTONE</text>
+      <line x1="72" y1="51" x2="91" y2="51" stroke="#C8883A" stroke-width="1.3"/>
+      <line x1="231" y1="51" x2="250" y2="51" stroke="#C8883A" stroke-width="1.3"/>
+      <text x="94" y="55" font-family="'DM Sans',Arial,sans-serif" font-size="8.5" letter-spacing="3.2" fill="#C8883A">WEB DEVELOPMENT</text>
+    </svg></div>
       <p class="footer-tagline">Professional websites for small businesses that want to be found, trusted, and chosen.</p>
     </div>
     <div class="footer-col">
