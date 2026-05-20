@@ -26,6 +26,11 @@
 }
 @media (max-width: 900px) {
   .inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .logo { height: 48px; }
+}
+@media (max-width: 600px) {
+  .inner { grid-template-columns: 1fr; gap: 1.5rem; }
+  .bottom { flex-direction: column; gap: 0.4rem; font-size: 0.72rem; }
 }
 @media (max-width: 600px) {
   .inner { grid-template-columns: 1fr; }

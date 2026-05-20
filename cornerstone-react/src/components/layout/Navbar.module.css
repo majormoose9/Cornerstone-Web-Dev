@@ -79,3 +79,8 @@
   .cta { display: none; }
   .links a:not(.cta) { display: none; }
 }
+
+@media(max-width:900px){
+  .nav { padding: 0 1.25rem; }
+  .logo img { height: 48px; }
+}

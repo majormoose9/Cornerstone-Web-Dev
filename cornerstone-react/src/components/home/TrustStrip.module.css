@@ -6,3 +6,8 @@
 .label{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);white-space:nowrap;}
 .pill{display:flex;align-items:center;gap:.5rem;font-weight:500;font-size:.85rem;color:var(--ink-muted);}
 .icon{font-size:.9rem;}
+
+@media(max-width:700px){
+  .strip { gap: 1.25rem; padding: 1.25rem 1rem; }
+  .label { display: none; }
+}

@@ -13,4 +13,9 @@
 .title{font-family:"DM Serif Display",serif;font-size:1.25rem;color:#fff;margin-bottom:.5rem;}
 .desc{font-size:.9rem;color:rgba(255,255,255,.7);line-height:1.7;}
 .connector{position:absolute;top:2.5rem;right:-1.1rem;width:2.2rem;height:1.5px;background:rgba(255,255,255,.2);z-index:1;}
-@media(max-width:900px){.grid{grid-template-columns:1fr;}.connector{display:none;}}
+@media(max-width:900px){
+  .section { padding: 64px 1.5rem; }
+  .grid { grid-template-columns: 1fr; gap: 1rem; margin-top: 2.5rem; }
+  .connector { display: none; }
+  .heading { font-size: 1.8rem; }
+}
