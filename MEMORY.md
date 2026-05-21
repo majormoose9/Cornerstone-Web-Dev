@@ -11,7 +11,7 @@ Build a transparent, modern, and aesthetically pleasing website for Cornerstone 
 - **Agency name:** Cornerstone Web Development
 - **Target clients:** Local small businesses — trades, services, retail, contractors, etc.
 - **Service area:** Southern New England (MA, Greater Providence RI, Boston area)
-- **Pricing model:** $799 flat rate, one-time payment, client owns the site forever
+- **Pricing model:** $499 flat rate, one-time payment, client owns the site forever
 - **Turnaround:** 14 days guaranteed
 - **Contact (placeholder — update before launch):**
   - hello@cornerstonewebdev.com
@@ -19,20 +19,67 @@ Build a transparent, modern, and aesthetically pleasing website for Cornerstone 
 
 ---
 
-## File Structure
+## Two Versions of the Site
+
+### Version 1 — Static HTML/CSS/JS
+Location: `C:\Users\student\Cornerstone Web Dev\` (repo root)
+- 5 standalone HTML files served via `node serve.mjs` → http://localhost:3000
+- Liquid glass card sections, mesh gradient hero, Formspree contact form
+- **Status:** Complete, in repo but NOT the deployed version
+
+### Version 2 — React (Vite + React Router + Framer Motion) ← ACTIVE
+Location: `C:\Users\student\Cornerstone Web Dev\cornerstone-react\`
+- **Live URL:** Deployed to Vercel (public URL, live on mobile)
+- Dev server: `cd cornerstone-react && npm run dev` → http://localhost:5173
+- **This is the version being actively developed and deployed**
+
+---
+
+## React Project Structure
+```
+cornerstone-react/
+  src/
+    components/
+      home/       Hero, HowItWorks, TrustCards, TrustStrip
+      layout/     Navbar, Footer
+      ui/         Button, SectionLabel
+    pages/        Home, Services, Work, Pricing, Contact
+    styles/       globals.css
+    App.jsx       Routes + ScrollToHash + AnimatePresence
+    main.jsx
+  public/
+    logo.png, kimball_before.jpeg, kimball_after.jpeg
+```
+
+## React Tech Stack
+- **Vite** — build tool
+- **React Router v6** — client-side routing with animated page transitions
+- **Framer Motion** — scroll animations, page fades, staggered cards
+- **CSS Modules** — scoped styles per component (Component.module.css)
+- **Formspree** — contact form backend (endpoint: xojrygvw)
+
+## React Key Behaviours
+- Navbar: solid white at top of page → frosted glass (72% opacity) on scroll
+- `history.scrollRestoration = "manual"` — always loads to top of page
+- `ScrollToHash` component — `/pricing#faq` deep-links to FAQ section
+- All headings: `font-weight: 400` (DM Serif Display only ships regular weight)
+- Mobile breakpoint: 900px — all pages use `padding-top: 90px` on mobile
+
+---
+
+## File Structure (Static Version)
 ```
 C:\Users\student\Cornerstone Web Dev\
-├── index.html          Home page (hero, how it works, trust cards)
-├── services.html       Services offered
-├── work.html           Portfolio / Our Work
-├── pricing.html        Pricing card + FAQ accordion
-├── contact.html        Contact form (Formspree)
+├── index.html          Home page
+├── services.html       Services
+├── work.html           Our Work
+├── pricing.html        Pricing + FAQ
+├── contact.html        Contact form
 ├── logo.png            Primary logo — 1173x393px, RGBA transparent
-├── kimball_before.jpeg Kimball Sand old site screenshot
-├── kimball_after.jpeg  Kimball Sand redesigned site screenshot
+├── kimball_before.jpeg Kimball Sand old site
+├── kimball_after.jpeg  Kimball Sand redesigned site
 ├── serve.mjs           Local dev server → http://localhost:3000
 ├── screenshot.mjs      Puppeteer screenshot tool
-├── package.json        Node deps (puppeteer for screenshots)
 └── MEMORY.md           This file
 ```
 
@@ -55,7 +102,7 @@ C:\Users\student\Cornerstone Web Dev\
 ```
 
 ### Typography
-- **Headings:** DM Serif Display (Google Fonts)
+- **Headings:** DM Serif Display (Google Fonts) — always `font-weight: 400`
 - **Body:** DM Sans (Google Fonts)
 - Large headings: `letter-spacing: -0.03em`, `line-height: 1.1`
 - Body: `line-height: 1.7`, `font-size: 17px`
@@ -64,110 +111,23 @@ C:\Users\student\Cornerstone Web Dev\
 - File: `logo.png` (transparent PNG, 1173×393, ~3:1 aspect ratio)
 - Nav size: `height: 64px`
 - Footer size: `height: 64px`
-- Note: the PNG has a transparent background — do not use the old JPEG versions
 
 ---
 
-## Nav Bar
-```css
-height: 82px;
-background: rgba(249,247,244,0.75);  /* semi-transparent, frosted glass */
-backdrop-filter: blur(12px);
-```
-- Mobile hamburger drawer: slide-in from right, `#navHamburger`, `#mobileDrawer`, `#drawerBackdrop`
-- Nav links: How It Works, Our Work, Services, Pricing, FAQ
-- CTA: "Schedule a Call" → contact.html
-
----
-
-## Liquid Glass Design Theme
-
-### How It Works
-Sections with dark gradient background + frosted glass cards:
-```css
-/* Section background */
-background: linear-gradient(140deg, #0d2218 0%, #1A3C34 55%, #1f4a3a 100%);
-
-/* Glass card */
-background: rgba(255, 255, 255, 0.07);
-border: 1px solid rgba(255, 255, 255, 0.18);
-backdrop-filter: blur(14px) url(#liquid-glass-filter);
-box-shadow:
-  inset 2px 2px 2px rgba(255,255,255,0.35),
-  inset -2px -2px 2px rgba(255,255,255,0.35),
-  0 8px 32px rgba(0,0,0,0.25);
-```
-
-### SVG Liquid Distortion Filter
-Added before `</body>` on pages that use the glass effect:
-```html
-<svg style="position:absolute;width:0;height:0;overflow:hidden;" aria-hidden="true">
-  <defs>
-    <filter id="liquid-glass-filter" ...>
-      <feTurbulence type="fractalNoise" baseFrequency="0.004 0.008" numOctaves="1"/>
-      <feDisplacementMap scale="180" xChannelSelector="R" yChannelSelector="G"/>
-    </filter>
-  </defs>
-</svg>
-```
-
-### Pages with Glass Sections Applied
-- **index.html:** How It Works section, Trust cards (Honest work / Locally invested / Always reachable)
-- **work.html:** Our Work section + Kimball Sand project card
-- **pricing.html:** Pricing section + FAQ accordion (`.faq-wrap` as single glass container)
-
----
-
-## Portfolio — Kimball Sand Company, Inc.
-- **Client:** Kimball Sand Company, Inc. — aggregate supplier, Blackstone MA (est. 1979)
+## Portfolio — Kimball Sand and Gravel
+- **Client:** Kimball Sand and Gravel — aggregate supplier, Blackstone MA (est. 1979)
 - **Live redesign:** https://k-sand-test.vercel.app
-- **Before screenshot:** `kimball_before.jpeg` — old 2000s table-based layout
-- **After screenshot:** `kimball_after.jpeg` — modern dark/red redesign
-- **Tags:** Custom Design, Mobile Responsive, Local SEO, Full Rebuild
-- This is currently the only portfolio case study. Add new projects as clients come in.
+- **Before screenshot:** `kimball_before.jpeg`
+- **After screenshot:** `kimball_after.jpeg`
+- This is the only portfolio case study. Add new projects as clients come in.
 
 ---
 
 ## Contact Form
 - **Provider:** Formspree
 - **Endpoint:** `https://formspree.io/f/xojrygvw`
-- **SDK:** `@formspree/ajax@1` via CDN (vanilla JS, no bundler)
 - **Fields:** Name, Business Name, Email, Phone (optional), Current Website (optional), Best Time to Reach, Services dropdown, Project description
-- **Services dropdown options:** First Time Website, Website Redesign, Google Business Profile
-- **Success:** shows `[data-fs-success]` block in place of form
-- **Fallback:** mailto link if Formspree fails
-
----
-
-## Scroll Animations
-- Class `.anim` → `fadeUp` (default)
-- Class `.anim-left` → `fadeLeft`
-- Class `.anim-right` → `fadeRight`
-- Class `.anim-scale` → `scaleIn`
-- Stagger via `.anim-d1` through `.anim-d4` (CSS animation-delay)
-- IntersectionObserver threshold: 0.1, rootMargin: `0px 0px -40px 0px`
-
----
-
-## Dev Workflow
-
-### Local server
-```bash
-node serve.mjs
-# → http://localhost:3000
-```
-
-### Screenshots (Puppeteer)
-```bash
-node screenshot.mjs http://localhost:3000 label
-# saves to ./temporary screenshots/screenshot-N-label.png
-```
-
-### CLAUDE.md Rules (from OneDrive)
-- Always invoke `frontend-design` skill before writing frontend code
-- Always serve on localhost — never screenshot file:// URLs
-- Do at least 2 screenshot comparison rounds before declaring done
-- Path: `C:\Users\student\OneDrive - Bryant University\Documents\Claude Stuff\CLAUDE.md`
+- **Services options:** First Time Website, Website Redesign, Google Business Profile
 
 ---
 
@@ -175,24 +135,33 @@ node screenshot.mjs http://localhost:3000 label
 - **Repo:** https://github.com/majormoose9/Cornerstone-Web-Dev.git
 - **Branch:** main
 - **⚠️ CRITICAL:** DO NOT push to GitHub unless Tucker explicitly says to
-- Push command when authorized: `git add . && git commit -m "message" && git push`
+- The repo contains BOTH versions — Vercel is configured to deploy from `cornerstone-react/` subfolder
+- Push command when authorized: `git add -A && git commit -m "message" && git push`
 
 ---
 
-## Known Issues / TODOs Before Launch
-- [ ] Replace placeholder phone number `(508) 555-0000` with real number
+## Vercel Deployment
+- **Deployed version:** React app (`cornerstone-react/`)
+- **Root directory setting:** `cornerstone-react`
+- **Build command:** `npm run build`
+- **Output directory:** `dist`
+- Vercel auto-deploys on every push to main
+
+---
+
+## TODOs / Next Steps
+- [ ] Replace placeholder phone `(508) 555-0000` with real number
 - [ ] Confirm `hello@cornerstonewebdev.com` is a live inbox
-- [ ] Apply glass theme to Our Work section (work.html) — in progress
-- [ ] Add more portfolio case studies as clients are completed
 - [ ] Add real testimonials when available
-- [ ] Deploy to Vercel (import GitHub repo, zero config needed for static site)
-- [ ] Point custom domain once acquired
+- [ ] Add more portfolio case studies as clients come in
+- [ ] Set up custom domain on Vercel
+- [ ] Add Google Analytics or Plausible for visitor tracking
+- [ ] Add meta descriptions and Open Graph tags to each React page
 
 ---
 
 ## What NOT to Do
-- Do not push to GitHub without explicit instruction
-- Do not use default Tailwind colors (indigo, blue) — always use brand vars
-- Do not use `transition-all` — animate only `transform` and `opacity`
-- Do not add fake metrics or testimonials (placeholder trust section is intentional)
-- Do not use `file:///` URLs for screenshots — always use localhost:3000
+- Do not push to GitHub without explicit instruction from Tucker
+- Do not touch the static HTML version unless asked — React is the active version
+- Do not use `font-weight: bold` on headings — DM Serif Display is weight 400 only
+- Do not add fake metrics or testimonials
