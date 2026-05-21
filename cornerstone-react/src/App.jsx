@@ -9,13 +9,21 @@ import Work     from "./pages/Work";
 import Pricing  from "./pages/Pricing";
 import Contact  from "./pages/Contact";
 
-// Scrolls to #hash after route change
+// Disable browser scroll restoration so React controls it
+if (typeof window !== "undefined" && "scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+
+// Scrolls to top on every route change, or to #hash if present
 function ScrollToHash() {
   const { pathname, hash } = useLocation();
   useEffect(() => {
-    if (!hash) { window.scrollTo(0, 0); return; }
+    if (!hash) {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      return;
+    }
     const el = document.getElementById(hash.slice(1));
-    if (el) setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
+    if (el) setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 150);
   }, [pathname, hash]);
   return null;
 }
