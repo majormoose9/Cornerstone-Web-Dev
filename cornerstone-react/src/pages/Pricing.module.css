@@ -49,7 +49,7 @@
 
 @media(max-width:900px){
   .section, .faqSection { padding: 64px 1.5rem; }
-  .section { padding-top: calc(82px + 64px); }
+  .section { padding-top: calc(82px + 20px); }
   .heading { font-size: 1.8rem; }
   .card { padding: 2rem 1.5rem; }
   .pills { gap: 1.25rem; }

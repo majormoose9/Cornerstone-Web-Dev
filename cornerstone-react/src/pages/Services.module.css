@@ -8,7 +8,7 @@
 .title{font-family:"DM Serif Display",serif;font-size:1.15rem;color:#fff;margin-bottom:.5rem;}
 .desc{font-size:.875rem;color:rgba(255,255,255,.6);line-height:1.7;}
 @media(max-width:900px){
-  .section { padding: 64px 1.5rem; padding-top: calc(82px + 64px); }
+  .section { padding: 64px 1.5rem; padding-top: calc(82px + 20px); }
   .heading { font-size: 1.8rem; }
   .grid { grid-template-columns: 1fr; }
   .sub { margin-bottom: 2rem; }

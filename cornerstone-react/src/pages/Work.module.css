@@ -32,7 +32,7 @@
   font-weight:500;font-size:.95rem;transition:transform .2s;
 }
 @media(max-width:900px){
-  .section { padding: 64px 1.5rem; padding-top: calc(82px + 64px); }
+  .section { padding: 64px 1.5rem; padding-top: calc(82px + 20px); }
   .heading { font-size: 1.8rem; }
   .screenshots { grid-template-columns: 1fr; }
   .meta { grid-template-columns: 1fr; gap: 1.25rem; }
