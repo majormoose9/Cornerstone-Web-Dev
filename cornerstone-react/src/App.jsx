@@ -1,6 +1,6 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import Navbar   from "./components/layout/Navbar";
 import Footer   from "./components/layout/Footer";
 import Home     from "./pages/Home";
@@ -9,21 +9,25 @@ import Work     from "./pages/Work";
 import Pricing  from "./pages/Pricing";
 import Contact  from "./pages/Contact";
 
-// Disable browser scroll restoration so React controls it
+// Disable browser scroll restoration at module level — runs before React mounts
 if (typeof window !== "undefined" && "scrollRestoration" in history) {
   history.scrollRestoration = "manual";
 }
 
-// Scrolls to top on every route change, or to #hash if present
+// useLayoutEffect fires synchronously before paint, beating the browser
+// scroll restoration. Also resets body.scrollTop for Safari.
 function ScrollToHash() {
   const { pathname, hash } = useLocation();
-  useEffect(() => {
-    if (!hash) {
-      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  useLayoutEffect(() => {
+    if (hash) {
+      const el = document.getElementById(hash.slice(1));
+      if (el) setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 150);
       return;
     }
-    const el = document.getElementById(hash.slice(1));
-    if (el) setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 150);
+    // Reset every scrollable target — covers Chrome, Firefox and Safari
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
   }, [pathname, hash]);
   return null;
 }
