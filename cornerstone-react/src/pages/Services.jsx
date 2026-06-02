@@ -23,7 +23,7 @@ const item = {
 export default function Services() {
   return (
     <motion.main initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration:.3}}>
-      <section className={`${s.section} glass-section`} style={{paddingTop:"calc(82px + 96px)"}}>
+      <section className={`${s.section} glass-section`}>
         <div className={s.inner}>
           <motion.div initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:.6}}>
             <SectionLabel>What we offer</SectionLabel>

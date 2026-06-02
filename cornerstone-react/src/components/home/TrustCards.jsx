@@ -18,7 +18,7 @@ export default function TrustCards() {
         <motion.div className={s.header}
           initial={{ opacity:0,y:20 }} whileInView={{ opacity:1,y:0 }}
           viewport={{ once:true }} transition={{ duration:.6 }}>
-          <SectionLabel center>Client results</SectionLabel>
+          <SectionLabel center>Who we are</SectionLabel>
           <h2 className={s.heading}>Built to earn your trust</h2>
           <p className={s.sub}>We're a new local business — just like the clients we serve. We don't have a wall of reviews yet, but we do have a clear commitment: we build every site as if our reputation depends on it. Because it does.</p>
         </motion.div>

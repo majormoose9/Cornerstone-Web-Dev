@@ -7,7 +7,7 @@ const tags = ["Custom Design","Mobile Responsive","Local SEO","Full Rebuild"];
 export default function Work() {
   return (
     <motion.main initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration:.3}}>
-      <section className={`${s.section} glass-section`} style={{paddingTop:"calc(82px + 96px)"}}>
+      <section className={`${s.section} glass-section`}>
         <div className={s.inner}>
           <motion.div className={s.header}
             initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:.6}}>

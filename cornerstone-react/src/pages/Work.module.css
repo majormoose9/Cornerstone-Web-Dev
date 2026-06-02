@@ -1,4 +1,4 @@
-﻿.section{padding:96px 2rem;}
+﻿.section{padding:90px 2rem 96px;}
 .inner{max-width:1160px;margin:0 auto;}
 .header{text-align:center;margin-bottom:4rem;}
 .heading{font-size:clamp(2rem,3.5vw,2.8rem);line-height:1.12;letter-spacing:-.03em;color:#fff;margin-bottom:1rem;}

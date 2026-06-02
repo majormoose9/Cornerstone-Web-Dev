@@ -3,7 +3,7 @@ import s from "./Footer.module.css";
 
 const services = ["Website Design","Local SEO","Google Business","Ongoing Support"];
 const company  = [
-  { label:"How It Works", to:"/#how-it-works" },
+  { label:"How It Works", to:"/"              },
   { label:"Our Work",     to:"/work"           },
   { label:"Pricing",      to:"/pricing"        },
   { label:"FAQ",          to:"/pricing#faq"    },

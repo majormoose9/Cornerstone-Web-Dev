@@ -1,6 +1,6 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useEffect, useRef } from "react";
 import Navbar   from "./components/layout/Navbar";
 import Footer   from "./components/layout/Footer";
 import Home     from "./pages/Home";
@@ -18,17 +18,41 @@ if (typeof window !== "undefined" && "scrollRestoration" in history) {
 // scroll restoration. Also resets body.scrollTop for Safari.
 function ScrollToHash() {
   const { pathname, hash } = useLocation();
+  const isFirstRender = useRef(true);
+
   useLayoutEffect(() => {
-    if (hash) {
-      const el = document.getElementById(hash.slice(1));
-      if (el) setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 150);
+    // On the very first render (hard reload), always go to top —
+    // main.jsx already stripped the hash, but this guards against
+    // any race where the hash is still set.
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
       return;
     }
-    // Reset every scrollable target — covers Chrome, Firefox and Safari
+    // Subsequent client-side navigations: honour hash links.
+    // Timeout must exceed the AnimatePresence page-transition duration (300ms)
+    // so the target page has fully mounted before we try to find the element.
+    if (hash) {
+      setTimeout(() => {
+        const el = document.getElementById(hash.slice(1));
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 400);
+      return;
+    }
     window.scrollTo(0, 0);
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
   }, [pathname, hash]);
+
+  // Post-paint safety net
+  useEffect(() => {
+    if (!hash && !isFirstRender.current) {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
+
   return null;
 }
 
