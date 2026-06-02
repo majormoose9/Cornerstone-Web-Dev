@@ -2,7 +2,7 @@
 import s from "./TrustStrip.module.css";
 
 const pills = [
-  { icon: "⚡", label: "Live in 14 days"   },
+  { icon: "⚡", label: "Live in a week"     },
   { icon: "📞", label: "Local & reachable" },
   { icon: "🎨", label: "Custom designed"   },
   { icon: "📈", label: "Built to grow"     },

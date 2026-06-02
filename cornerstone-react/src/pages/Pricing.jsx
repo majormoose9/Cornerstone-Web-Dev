@@ -19,7 +19,7 @@ const faqs = [
   { q:"Do I need to know anything about technology?",
     a:"Not at all. Our whole process is designed for business owners, not tech people. You focus on describing your business and what you want — we handle every technical detail." },
   { q:"How long does it take to build my website?",
-    a:"Most websites are live within 14 days of our first conversation. The process: discovery call → design preview within 5 business days → feedback → finalize and launch." },
+    a:"Most websites are live within a week of our first conversation. The process: discovery call → design preview within 5 business days → feedback → finalize and launch." },
   { q:"Will I be able to update the website myself?",
     a:"Yes — within 30 days of launch, just reach out and we'll take care of any updates for you. After that window, the site is fully yours to manage." },
   { q:"Is there a contract? What if I want to cancel?",
@@ -80,7 +80,7 @@ export default function Pricing() {
           </motion.div>
 
           <div className={s.pills}>
-            {["No monthly fees","Live in 14 days","Free discovery call"].map(p => (
+            {["No monthly fees","Live in a week","Free discovery call"].map(p => (
               <div key={p} className={s.pill}><span className={s.pillCheck}>✓</span>{p}</div>
             ))}
           </div>

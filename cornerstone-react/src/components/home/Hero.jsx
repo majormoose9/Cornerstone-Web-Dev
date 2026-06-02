@@ -28,8 +28,7 @@ export default function Hero() {
         </motion.h1>
 
         <motion.p className={s.sub} {...fadeUp(0.35)}>
-          We build fast, beautiful, trust-building websites for small
-          businesses — without the agency price tag or the runaround.
+          We build fast, beautiful, trust-building websites for small businesses because we believe a good website is a <strong>Cornerstone</strong> of every great business.
         </motion.p>
 
         <motion.div className={s.actions} {...fadeUp(0.5)}>
