@@ -1,4 +1,4 @@
-﻿.section{padding:96px 2rem;background:var(--off-white);}
+﻿.section{padding:90px 2rem 96px;background:var(--off-white);}
 .inner{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
 .formWrap{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:2.5rem;box-shadow:0 8px 32px rgba(26,60,52,.07);}
 .formTitle{font-family:"DM Serif Display",serif;font-size:1.5rem;color:var(--brand);margin-bottom:.35rem;}
@@ -42,7 +42,7 @@
 .legal{font-size:.82rem;color:var(--ink-faint);margin-top:1.5rem;border-top:1px solid var(--border);padding-top:1.25rem;}
 
 @media(max-width:900px){
-  .section { padding: 64px 1.5rem; padding-top: 90px; }
+  .section { padding: 64px 1.5rem; padding-top: 74px; }
   .inner { grid-template-columns: 1fr; gap: 3rem; }
   .row { grid-template-columns: 1fr; }
   .formWrap { padding: 1.75rem 1.25rem; }

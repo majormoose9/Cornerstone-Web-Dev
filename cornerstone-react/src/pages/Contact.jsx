@@ -40,7 +40,7 @@ export default function Contact() {
 
   return (
     <motion.main initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration:.3}}>
-      <section className={s.section} style={{paddingTop:"calc(82px + 96px)"}}>
+      <section className={s.section}>
         <div className={s.inner}>
 
           {/* Form */}
