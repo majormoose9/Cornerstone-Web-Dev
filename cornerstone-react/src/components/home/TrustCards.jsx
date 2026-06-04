@@ -8,7 +8,7 @@ const cards = [
   { emoji:"📍", title:"Locally invested",
     desc:"We live and work in this area too. When your business grows, so does our community. That's not a tagline — it's why we started this." },
   { emoji:"📬", title:"Always reachable",
-    desc:"You'll have a direct line to a real person — not a support ticket queue. Text us, call us, email us. We respond." },
+    desc:"You'll have a direct line to a real person — not a support ticket queue. Email us and we respond fast." },
 ];
 
 export default function TrustCards() {

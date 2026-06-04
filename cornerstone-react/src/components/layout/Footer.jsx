@@ -33,8 +33,7 @@ export default function Footer() {
         <div className={s.col}>
           <h5>Contact</h5>
           <a href="mailto:sales@cornerstonewebdevelopment.com">sales@cornerstonewebdevelopment.com</a>
-          <a href="tel:+15085550000">(508) 555-0000</a>
-          <Link to="/contact">Book a Call</Link>
+          <Link to="/contact">Schedule a Call</Link>
         </div>
       </div>
 
