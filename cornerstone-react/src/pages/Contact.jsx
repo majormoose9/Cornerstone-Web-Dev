@@ -6,7 +6,7 @@ import s from "./Contact.module.css";
 const ENDPOINT = "https://formspree.io/f/xojrygvw";
 
 const details = [
-  { icon:"✉", label:"Email us", value:"hello@cornerstonewebdev.com", href:"mailto:hello@cornerstonewebdev.com" },
+  { icon:"✉", label:"Email us", value:"sales@cornerstonewebdevelopment.com", href:"mailto:sales@cornerstonewebdevelopment.com" },
   { icon:"📞", label:"Call or text", value:"(508) 555-0000", href:"tel:+15085550000" },
   { icon:"⏱", label:"Response time", value:"Within one business day — usually same day" },
 ];
