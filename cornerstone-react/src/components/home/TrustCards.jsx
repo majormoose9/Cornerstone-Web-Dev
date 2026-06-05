@@ -20,7 +20,7 @@ export default function TrustCards() {
           viewport={{ once:true }} transition={{ duration:.6 }}>
           <SectionLabel center>Who we are</SectionLabel>
           <h2 className={s.heading}>Built to earn your trust</h2>
-          <p className={s.sub}>We're a new local business — just like the clients we serve. We don't have a wall of reviews yet, but we do have a clear commitment: we build every site as if our reputation depends on it. Because it does.</p>
+          <p className={s.sub}>We are a student-run digital agency helping local businesses build a strong online presence and generate more customers through Google Business Profiles and website development. We specialize in setting up simple, effective customer acquisition systems that turn online traffic into real customers.</p>
         </motion.div>
 
         <div className={s.stack}>
