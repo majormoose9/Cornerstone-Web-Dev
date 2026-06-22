@@ -32,7 +32,7 @@ export default function Footer() {
 
         <div className={s.col}>
           <h5>Contact</h5>
-          <a href="mailto:sales@cornerstonewebdevelopment.com">sales@cornerstonewebdevelopment.com</a>
+          <a href="mailto:cornerstone.website.development@gmail.com">cornerstone.website.development@gmail.com</a>
           <Link to="/contact">Schedule a Call</Link>
         </div>
       </div>
